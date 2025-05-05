@@ -1,0 +1,77 @@
+project:
+  type: website
+  output-dir: "../output"
+  resources:
+    - "lib/"
+  render:
+    - "*.qmd"
+    - "!beta/*.qmd"
+    - "ratio/*.qmd"
+    - "!daa/*.qmd"
+    - "!alpha/alpha.qmd"
+    - "!daa/daa_level.qmd"
+website:
+  title: "OGB Analysis"
+  navbar:
+    left:
+      - text: "Alpha Diversity"
+        menu:
+          - text: "Shannon"
+            href: alpha/alpha_shannon.html
+          - text: "Observed"
+            href: alpha/alpha_observed.html
+      - text: "Beta Diversity"
+        href: beta/beta.html
+      - text: "B/F Ratio"
+        href: ratio/ratio.html
+      - text: "Taxonomic DAA"
+        menu:
+          - text: "Maaslin"
+            href: daa/daa_taxa_maaslin3.html
+          - text: "Selected Taxa"
+            href: daa/daa_interest.html
+          - text: "Wilcoxon Genus"
+            href: daa/wilcoxon_genus_prevalent.html
+          - text: "Wilcoxon Species"
+            href: daa/wilcoxon_species_prevalent.html
+          
+      - text: "Functional DAA"
+        menu:
+          - text: "Pathway Abundance"
+            href: daa/daa_pa.html
+          - text: "Pathway Coverage"
+            href: daa/daa_pc.html
+          - text: "KO"
+            href: daa/daa_ko.html
+          - text: "Metacyc"
+            href: daa/daa_mtc.html
+
+  sidebar:
+    style: "docked"
+    search: true
+
+format:
+  html:
+    theme: cosmo
+    number-sections: true
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-summary: "Show Code"
+    page-layout: full
+    number-depth: 3
+    crossref:
+      fig-title: "Figure "
+      tbl-title: "Table "
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  include: true
+  freeze: true
+  dependencies:
+    - quarto
+    - fs
+
+editor: visual
